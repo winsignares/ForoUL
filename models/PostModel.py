@@ -6,7 +6,7 @@ class Post (bd.Model):
     
     idForo = bd.Column(bd.Integer, primary_key = True)
     Comentario = bd.Column(bd.String(200))
-    id_User = bd.Column(bd.Integer, bd.Foreignkey('tblUsers.id'))
+    id_User = bd.Column(bd.Integer, bd.ForeignKey('tblUsers.id'))
 
     def __init__(self, Comentario,id_User):
         self.Comentario = Comentario
@@ -15,6 +15,6 @@ class Post (bd.Model):
 with app.app_context():
     bd.create_all()
 
-class UsersSchema(ma.Schema):
+class PostsSchema(ma.Schema):
     class Meta: 
         fields = ('idForo', 'Comentario', 'id_User')
