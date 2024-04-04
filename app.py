@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, json, jsonify
 from config.db import app
 
-@app.route('/', methods = ['GET'])
+@app.route('/', methods=['GET'])
 def index():
     return "Hola Mundo"
 
