@@ -1,12 +1,13 @@
 from flask import Flask, render_template, request, json, jsonify
 from config.db import app
 
-from models.UserModel import Users, UsersSchema
+
 from models.PostModel import Post, PostsSchema
 from models.CommentsModel import Comment, CommentsSchema 
 
-user_schema = UsersSchema()
-users_schema = UsersSchema(many=True)
+from controllers.UserController import ruta_user
+
+app.register_blueprint(ruta_user, url_prefix="/controller")
 
 post_schema = PostsSchema()
 posts_schema = PostsSchema(many=True)
