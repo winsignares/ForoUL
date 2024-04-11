@@ -3,15 +3,11 @@ from config.db import app
 
 from controllers.UserController import ruta_user
 from controllers.CommentController import ruta_comment
+from controllers.PostController import ruta_post
 
 app.register_blueprint(ruta_user, url_prefix="/controller")
 app.register_blueprint(ruta_comment, url_prefix="/controller")
-
-from models.PostModel import Post, PostsSchema
-
-post_schema = PostsSchema()
-posts_schema = PostsSchema(many=True)
-
+app.register_blueprint(ruta_post, url_prefix="/controller")
 
 @app.route('/', methods=['GET'])
 def index():
