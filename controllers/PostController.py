@@ -1,7 +1,7 @@
 from flask import Blueprint, Flask, request, render_template, jsonify
 from config.db import app, bd, ma
 
-from models.PostModel import Post, PostsSchema
+from models.PostModels import Postsm, PostsSchema
 
 ruta_post = Blueprint("route_post", __name__)
 
