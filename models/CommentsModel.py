@@ -2,8 +2,7 @@ from config.db import bd, ma, app
 
 class Comment (bd.Model):
     __tablename__ = "tblcomments"
-
-    idPost = bd.Column(bd.Integer, bd.ForeignKey('tblPost.idForo'))
+    idPost = bd.Column(bd.Integer, primary_key = True)
     idComments = bd.Column(bd.Integer, primary_key = True)
     Comentario = bd.Column(bd.String(200))
     id_User = bd.Column(bd.Integer, bd.ForeignKey('tblUsers.id'))
