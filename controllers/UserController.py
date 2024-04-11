@@ -11,7 +11,7 @@ users_schema = UsersSchema(many=True)
 
 @ruta_user.route('/User')
 def indexuser():
-    return 'Hola Mundo controlador User'
+    return render_template("user.html")
 
 @ruta_user.route("/User")
 def indexUser():
