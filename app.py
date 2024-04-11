@@ -11,7 +11,7 @@ app.register_blueprint(ruta_post, url_prefix="/controller")
 
 @app.route('/', methods=['GET'])
 def index():
-    return "Hola Mundo index"
+    return render_template("layaout.html")
 
 if __name__ == "__main__":
     app.run(debug=True, host='0.0.0.0')
