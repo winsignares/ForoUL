@@ -40,3 +40,11 @@ def Cuser():
             'email': user.email
         }
     return jsonify(data)
+
+@ruta_user.route("/Euser", methods=["Delete"])
+def Euser():
+    id = request.json['id']
+    Usuario = Users.query.get(id)
+    bd.session.delete(Usuario)
+    bd.session.commit()
+    return jsonify(user_schema.dump(Usuario))
