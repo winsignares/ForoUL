@@ -1,5 +1,5 @@
 
-from flask import Blueprint, Flask, render_template, request
+from flask import Blueprint, Flask, render_template, request, jsonify
 from config.db import bd, ma, app
 
 from models.UserModel import Users, UsersSchema
@@ -26,3 +26,17 @@ def Saveuser():
     bd.session.add(newuser)
     bd.session.commit()
     return "guardado"
+
+
+@ruta_user.route("/Cuser", methods=["POST"])
+def Cuser():
+    result = bd.session.query(Users).all()
+    data = {}
+    i= 0
+    for user in result:
+        i+=1
+        data[i]={
+            'fullname' : user.fullname,
+            'email': user.email
+        }
+    return jsonify(data)
