@@ -36,10 +36,7 @@ function saludar() {
           .finally(function () {
             // siempre sera ejecutado
           });
-
-
-
-
+          cargadatos();
         
         let newRow = document.createElement("tr");
         newRow.innerHTML = `
@@ -53,5 +50,42 @@ function saludar() {
        
         emailInput.value = "";
         fullnameInput.value = "";
+        
     }
     
+
+function cargadatos() {
+    
+    let endpoint = '/controller/Cuser';
+    
+    alert("entro")    
+    axios.get(endpoint, )
+      .then(function (response) {
+       let data = response.data;
+       let tbody = document.getElementById("tcuerpo");    
+        
+       let tope = (Object.keys(data).length) +1;
+       let newRow = document.createElement("tr");
+       let lit ='';
+        
+       for (let index = 1; index < tope; index++) {
+        
+            lit +=`
+            <th scope="row">${index}</th>
+            <td>${data[index].email}</td>
+            <td>${data[index].fullname}</td>
+           `; 
+       }
+       newRow.innerHTML =lit;
+       newRow.appendChild(newRow);
+
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      })
+      .finally(function () {
+        // siempre sera ejecutado
+      });
+
+}

@@ -28,7 +28,7 @@ def Saveuser():
     return "guardado"
 
 
-@ruta_user.route("/Cuser", methods=["POST"])
+@ruta_user.route("/Cuser", methods=["GET"])
 def Cuser():
     result = bd.session.query(Users).all()
     data = {}
