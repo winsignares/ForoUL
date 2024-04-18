@@ -17,3 +17,12 @@ def indexuser():
 def indexUser():
     return "Hola mundo desde el User Controller"
 
+
+@ruta_user.route("/Saveuser", methods=["POST"])
+def Saveuser():
+    email = request.json['email']
+    fullname = request.json['fullname']
+    newuser = Users(fullname,email)
+    bd.session.add(newuser)
+    bd.session.commit()
+    return "guardado"

@@ -21,6 +21,6 @@ function SaveUser() {
     data += '<td>'+email.value+'</td>';
     data += '<td>'+fullname.value+'</td>';
     data += '</tr>';
-    tcuerpo.innerHTML = data;
+    tcuerpo.appendChild = data;
     swal("Datos Guardado!", "Puede continuar!", "success");
 }
