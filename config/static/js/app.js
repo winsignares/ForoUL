@@ -3,14 +3,7 @@ function saludar() {
     let email = document.getElementById("exampleInputEmail1")
     alert("Hola Mundo "+ email.value);
 }
-/***
- * <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-      </tr>
- */
+
       function SaveUser() {
        
         let emailInput = document.getElementById("exampleInputEmail1");
@@ -67,17 +60,18 @@ function cargadatos() {
        let tope = (Object.keys(data).length) +1;
        let newRow = document.createElement("tr");
        let lit ='';
-        
+       
        for (let index = 1; index < tope; index++) {
         
-            lit +=`
+            lit +=`<tr>
             <th scope="row">${index}</th>
             <td>${data[index].email}</td>
             <td>${data[index].fullname}</td>
+            </tr>
            `; 
        }
-       newRow.innerHTML =lit;
-       newRow.appendChild(newRow);
+       tbody.innerHTML =lit;
+       //newRow.appendChild(newRow);
 
         console.log(response);
       })
