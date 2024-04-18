@@ -22,4 +22,5 @@ function SaveUser() {
     data += '<td>'+fullname.value+'</td>';
     data += '</tr>';
     tcuerpo.innerHTML = data;
+    swal("Datos Guardado!", "Puede continuar!", "success");
 }
