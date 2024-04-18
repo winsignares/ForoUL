@@ -48,3 +48,14 @@ def Euser():
     bd.session.delete(Usuario)
     bd.session.commit()
     return jsonify(user_schema.dump(Usuario))
+
+@ruta_user.route("/Uuser", methods=["Delete"])
+def Uuser():
+    id = request.json['id']
+    Usuario = Users.query.get(id)
+    email = request.json['email']
+    fullname = request.json['fullname']
+    Usuario.fullname = fullname
+    Usuario.email = email    
+    bd.session.commit()
+    return "Datos Actualizado"
